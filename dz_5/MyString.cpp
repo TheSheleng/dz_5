@@ -18,22 +18,30 @@ MyString::MyString()
 {
 	TakeMemor(STR_LENGHT_DEFAULT);
 	str[0] = '\0';
+
+	count += 1;  // - Äëÿ äç ¹6
 }
 
 MyString::MyString(int len)
 {
 	TakeMemor(len);
 	str[0] = '\0';
+
+	count += 1;  // - Äëÿ äç ¹6
 }
 
 MyString::MyString(const char* str)
 {
 	MyStrSet(str);
+
+	count += 1;  // - Äëÿ äç ¹6
 }
 
 MyString::~MyString()
 {
 	MyStrClear();
+
+	count -= 1;  // - Äëÿ äç ¹6
 }
 
 void MyString::MyStrSet(const char* str)
@@ -126,4 +134,9 @@ int MyString::MyStrCmp(MyString& b)
 	if (lenght < b.MyStrLen()) return -1;
 	else if (lenght > b.MyStrLen()) return 1;
 	else return 0;
+}
+
+int MyString::MyStrCount()
+{
+	return count;
 }
