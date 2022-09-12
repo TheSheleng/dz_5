@@ -14,34 +14,33 @@ int MyString::LenDefine(const char* str)
 	return len;
 }
 
-MyString::MyString() 
-{
-	TakeMemor(STR_LENGHT_DEFAULT);
-	str[0] = '\0';
-
-	count += 1;  // - Для дз №6
-}
+MyString::MyString() : MyString(STR_LENGHT_DEFAULT) {};
 
 MyString::MyString(int len)
 {
 	TakeMemor(len);
-	str[0] = '\0';
+	str[NULL] = '\0';
 
-	count += 1;  // - Для дз №6
+	count += 1;
 }
 
 MyString::MyString(const char* str)
 {
 	MyStrSet(str);
 
-	count += 1;  // - Для дз №6
+	count += 1;
 }
 
 MyString::~MyString()
 {
 	MyStrClear();
 
-	count -= 1;  // - Для дз №6
+	count -= 1;
+}
+
+MyString::MyString(MyString& str)
+{
+	MyStrSet(str.MyStrGet());
 }
 
 void MyString::MyStrSet(const char* str)
@@ -111,7 +110,7 @@ void MyString::MyStrCat(MyString& b)
 	for (int i = 0; i < lenght; i++)
 		newStr[i] = str[i];
 	for (int i = 0; i < b.MyStrLen() + 1; i++)
-		*(newStr + i + lenght) = b.MyStrGet()[i]; //newStr[i + lenght] = b.MyStrGet()[i]; - изначально был такой вариант, но был алёрт.
+		*(newStr + i + lenght) = b.MyStrGet()[i];
 
 	MyStrClear();	
 	str = newStr;

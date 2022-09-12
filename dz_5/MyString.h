@@ -10,12 +10,13 @@ class MyString
 	void TakeMemor(int lenght);
 	int LenDefine(const char* str);
 
-	static int count; // - Äëÿ äç ¹6
+	static int count;
 
 public:
 	MyString();
 	MyString(int len);
 	MyString(const char* str);
+	MyString(MyString& str);
 	~MyString();
 	
 	void MyStrSet(const char* str);
