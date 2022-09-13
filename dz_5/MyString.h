@@ -8,7 +8,7 @@ class MyString
 	int lenght;
 	
 	void TakeMemor(int lenght);
-	int LenDefine(const char* str);
+	int LenDefine(const char* str) const;
 
 	static int count;
 
@@ -20,13 +20,13 @@ public:
 	~MyString();
 	
 	void MyStrSet(const char* str);
-	const char* MyStrGet();
+	const char* MyStrGet() const;
 	void MyStrClear();
 	void MyStrInit();
 
 	void MyStrCpy(MyString& obj);
-	bool MyStrStr(const char* str);
-	int  MyChr(char c);
+	bool MyStrStr(const char* str) const;
+	int  MyChr(char c) const;
 	int MyStrLen();
 	void MyStrCat(MyString& b);
 	void MyDelChr(char c);

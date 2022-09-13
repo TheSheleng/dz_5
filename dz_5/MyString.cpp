@@ -7,7 +7,7 @@ void MyString::TakeMemor(int lenght)
 	this->lenght = lenght;
 }
 
-int MyString::LenDefine(const char* str)
+int MyString::LenDefine(const char* str) const
 {
 	int len = 0;
 	while (str[len] != '\0') len += 1;
@@ -54,7 +54,7 @@ void MyString::MyStrSet(const char* str)
 		this->str[i] = str[i];
 }
 
-const char* MyString::MyStrGet()
+const char* MyString::MyStrGet() const
 {
 	return str;
 }
@@ -78,7 +78,7 @@ void MyString::MyStrCpy(MyString& obj)
 	MyStrSet(obj.MyStrGet());
 }
 
-bool MyString::MyStrStr(const char* str)
+bool MyString::MyStrStr(const char* str) const
 {
 	int len = LenDefine(str);
 
@@ -90,7 +90,7 @@ bool MyString::MyStrStr(const char* str)
 	return false;
 }
 
-int  MyString::MyChr(char c)
+int  MyString::MyChr(char c) const
 {
 	for (int i = 0; i < lenght; i++)
 		if (str[i] == c) return i;
