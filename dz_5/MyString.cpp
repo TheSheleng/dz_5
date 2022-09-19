@@ -139,3 +139,31 @@ int MyString::MyStrCount()
 {
 	return count;
 }
+
+//Äç ¹12
+MyString& MyString::operator= (const MyString& str)
+{
+	if (&str != this) MyStrSet(str.MyStrGet());
+	return *this;
+}
+
+void MyString::operator() ()
+{
+	std::cout << str << std::endl;
+}
+
+char MyString::operator[] (int i)
+{
+	if (i >= 0 && i <= lenght) return str[i];
+	else return NULL;
+}
+
+MyString::operator char* ()
+{
+	return str;
+}
+
+MyString::operator int()
+{
+	return lenght;
+}

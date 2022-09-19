@@ -33,5 +33,13 @@ public:
 	int MyStrCmp(MyString& b);
 
 	static int MyStrCount();
+
+	//Äç ¹12
+	MyString& operator= (const MyString& str);
+	void operator() ();
+	char operator[] (int i);
+
+	operator char* ();
+	operator int ();
 };
 

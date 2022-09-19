@@ -7,8 +7,16 @@ int MyString::count = 0;
 
 int main()
 {
-    MyString test_1("test");
-    MyString test_2(test_1);
-    
+    MyString test("test");
+    MyString test_2;
+
+    test_2 = test_2 = test; 
     cout << test_2.MyStrGet() << endl;
+
+    cout << "Operator(): ";
+    test();
+    cout << "Operator[]: " << test[0] << test[1] << test[2] << test[3] << endl;
+
+    cout << "Str: " << (char*)test << endl;
+    cout << "Len: " << (int)test << endl;
 }
