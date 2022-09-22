@@ -4,8 +4,8 @@
 
 class MyString
 {
-	char* str;
-	int lenght;
+	char* str = nullptr;
+	int lenght = 0;
 	
 	void TakeMemor(int lenght);
 	int LenDefine(const char* str) const;
@@ -17,8 +17,12 @@ public:
 	MyString(int len);
 	MyString(const char* str);
 	MyString(MyString& str);
+	MyString(std::initializer_list<char> str); // - äç ¹16
 	~MyString();
 	
+	MyString(MyString&& other) noexcept; // - äç ¹16
+	MyString& operator=(MyString&& other) noexcept; // - äç ¹16
+
 	void MyStrSet(const char* str);
 	const char* MyStrGet() const;
 	void MyStrClear();
@@ -38,6 +42,8 @@ public:
 	MyString& operator= (const MyString& str);
 	void operator() ();
 	char operator[] (int i);
+
+	operator MyString && ();
 
 	operator char* ();
 	operator int ();

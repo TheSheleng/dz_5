@@ -38,9 +38,39 @@ MyString::~MyString()
 	count -= 1;
 }
 
+MyString::MyString(MyString&& other) noexcept
+{
+	str = other.str;
+	lenght = other.lenght;
+
+	other.str = nullptr;
+	other.lenght = 0;
+}
+
+MyString& MyString::operator=(MyString&& other) noexcept
+{
+	str = other.str;
+	lenght = other.lenght;
+
+	other.str = nullptr;
+	other.lenght = 0;
+
+	return *this;
+}
+
 MyString::MyString(MyString& str)
 {
 	MyStrSet(str.MyStrGet());
+}
+
+MyString::MyString(std::initializer_list<char> str)
+{
+	lenght = str.size();
+	this->str = new char[lenght + 1];
+
+	for (int i = 0; i <= lenght; i++)
+		this->str[i] = str.begin()[i];
+	this->str[lenght] = '\0';
 }
 
 void MyString::MyStrSet(const char* str)
@@ -156,6 +186,11 @@ char MyString::operator[] (int i)
 {
 	if (i >= 0 && i <= lenght) return str[i];
 	else return NULL;
+}
+
+MyString::operator MyString && ()
+{
+	return std::move(*this);
 }
 
 MyString::operator char* ()
